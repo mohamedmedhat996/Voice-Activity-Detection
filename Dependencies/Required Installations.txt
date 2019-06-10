@@ -1,0 +1,3 @@
+pip3 install pydub
+pip3 install audioread
+pip3 install SpeechRecognition
