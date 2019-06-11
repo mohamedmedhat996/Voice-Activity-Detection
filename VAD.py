@@ -73,6 +73,12 @@ def speech_recognition(filename):
 
     text_file.close()
 
+# Load Audio
+def load_audio(filename):
+    audio = AudioSegment.from_wav(filename)
+    print("Loading Done")
+    return audio
+
 # Play Audio
 def play_audio(audio):
     play(audio)
@@ -80,21 +86,3 @@ def play_audio(audio):
 # Draw Audio Signal
 def draw_signal():
     pass
-
-def main():
-    # Load your audio.
-    audio = AudioSegment.from_wav(".//test//CD.wav")
-    print("Loading Done")
-    # play_audio(audio)
-
-    # Get normalized audio output after trim silence
-    normalized_audio = audio_processing(audio)
-
-    # Export the audio after remove silence    
-    output_file = ".//output//Normalized_Audio.wav"    
-    normalized_audio.export(output_file , bitrate = "192k", format = "wav")
-
-    speech_recognition(output_file)
-
-if __name__ == "__main__":
-    main()
